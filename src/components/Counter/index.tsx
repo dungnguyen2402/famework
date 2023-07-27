@@ -1,26 +1,27 @@
 // import { useContext } from "react";
+import { decrement, increament, increase } from "@/slices/Couter";
 import { Button } from "..";
+import { useAppDispatch, useAppSelector } from "@/store/hook";
 // import { CounterContext } from "@/Context/CounterContext";
-import { useSelector, useDispatch } from "react-redux"
 
 const Counter = () => {
     // const { count, increment, decrement } = useContext(CounterContext);
     // const { state, dispatch } = useContext(CounterContext);
     // console.log(state);
 
-    const dispatch = useDispatch()
-    const { count } = useSelector((state: any) => state.counter)
+    const dispatch = useAppDispatch()
+    const { count } = useAppSelector((state: any) => state.counter)
 
     return (
         <div>
             Counter: {count}
-            <Button type="primary" onClick={() => dispatch({ type: "INCREMENT" })}>
+            <Button type="primary" onClick={() => dispatch(increament())}>
                 Increment
             </Button>
-            <Button type="primary" onClick={() => dispatch({ type: "DECREMENT" })}>
+            <Button type="primary" onClick={() => dispatch(decrement())}>
                 Decrement
             </Button>
-            <Button type="primary" onClick={() => dispatch({ type: "INCREASE", payload: 10 })}>
+            <Button type="primary" onClick={() => dispatch(increase(10))}>
                 Increase
             </Button>
         </div>

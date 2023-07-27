@@ -1,6 +1,6 @@
-import { counterReducer } from "@/reducers/CounterReducer";
 import { createContext, useReducer } from "react";
 import { produce } from "immer";
+import { counterReducer } from "@/slices/Couter";
 export const CounterContext = createContext({} as any)
 
 type CounterProviderProps = {
